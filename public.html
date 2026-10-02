@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>🏠 Housing Sales Portal</h1>
+
+    <!-- Add Property Form -->
+    <div class="card">
+        <h2>Add Property</h2>
+        <form id="prop-form">
+            <input type="text" id="unit" placeholder="Unit (e.g. A-12)" required>
+            <select id="type">
+                <option value="Condo">Condo</option>
+                <option value="Terrace">Terrace</option>
+                <option value="Semi-D">Semi-D</option>
+                <option value="Bungalow">Bungalow</option>
+            </select>
+            <input type="number" id="price" placeholder="Price ($)" required>
+            <input type="text" id="location" placeholder="Location" required>
+            <button type="submit">Add Property</button>
+        </form>
+    </div>
+
+    <!-- Property List -->
+    <div class="card">
+        <h2>Property List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Unit</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="prop-list"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
