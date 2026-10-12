@@ -3,8 +3,8 @@
 This is my final assessment project for the Web Technology course (Housing Sales project).
 
 ## 👨‍💻 Author Information
-- **Name**: [Your Name, e.g., Jayden Liew]
-- **Student ID**: [Your Student ID]
+- **Name**: [Name：Jayden Liew]
+- **Student ID**: [Student ID202507008364]
 - **Course**: Web Technology
 
 ## 📁 Project Structure
