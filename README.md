@@ -1,26 +1,38 @@
-# Final Assessment: WEB Technology
+# Housing Sales & Buyer Management System
 
-This is my final assessment project for the Web Technology course (Housing Sales project).
+**Course:** Web Technology Final Assessment (Case Study C)
+**Student Name:Jayden Liew]
+**Student ID:QIU-202507008364
 
-## 👨‍💻 Author Information
-- **Name**: [Name：Jayden Liew]
-- **Student ID**: [Student ID：202507008364]
-- **Course**: Web Technology
+## 📖 Project Overview
+This is a full-stack web application built for the housing sales domain. It serves as a production-ready intermediary backend service and user interface, enabling secure property management, buyer reservations, and external API integration. 
+
+The project is divided into four core phases as required by the final assessment:
+- **Task 1:** Web API Architecture & Implementation (Integration of 3 external APIs)
+- **Task 2:** Database Integration & Feature Extension (MySQL, CRUD, Transactions)
+- **Task 3:** Web Application Security Implementation (JWT, bcrypt, SQL Injection prevention, Rate Limiting)
+- **Task 4:** Project Deployment (Git, Environment Variables, Cloud Hosting)
+
+## 🛠️ Technology Stack
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript
+- **Backend:** Node.js, Express.js
+- **Database:** MySQL (via `mysql2`)
+- **Security:** `helmet`, `express-rate-limit`, `bcryptjs`, `jsonwebtoken`
+- **Deployment:** Render / Railway (Connected to GitHub)
 
 ## 📁 Project Structure
-- `index.html`: Main homepage
-- `public.html`: Public page
-- `housing-sales (Assg).zip`: Project source code archive
-
-## 🚀 How to View
-You can view the project by opening `index.html` in your browser, or visit the live GitHub Pages link below:
-👉 [Live Preview](https://jaydenliew-ops.github.io/Final-Assessment-WEB-Technology-/) 
-*(Note: Replace this link with your actual GitHub Pages URL)*
-
-## 🛠️ Technologies Used
-- HTML5
-- CSS3 (if applicable)
-- JavaScript (if applicable)
-
-## 📝 Notes
-This project is submitted for the Web Technology final assessment.
+```text
+├── public/                 # Frontend assets (HTML, CSS, Client JS)
+├── lib/                    # Backend utilities (Errors, Validation)
+├── services/               # Business logic (Reservations)
+├── migrations/             # Database migration scripts
+├── app.js                  # Express application configuration
+├── server.js               # Application entry point
+├── config.js               # Environment configuration loader
+├── database.js             # MySQL connection pool
+├── authMiddleware.js       # JWT authentication middleware
+├── routes.js               # Authentication & User routes
+├── propertyRoutes.js       # Property & Reservation routes
+├── database.sql            # Core database schema
+├── house.sql               # Sample data
+└── .env.example            # Environment variables template
