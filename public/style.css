@@ -1,0 +1,339 @@
+/* ==========================================
+   Quest Housing Sales - Complete Style Sheet
+   ========================================== */
+
+/* ----- RESET & BASE ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+        url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #1a1a2e;
+    line-height: 1.6;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.main {
+    padding: 30px 0;
+    flex: 1;
+}
+
+/* ----- NAVBAR STYLES ----- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a1a2e;
+    padding: 15px 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.navbar h2 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline-block;
+}
+
+.navbar ul li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #2d3e5f;
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid #3d5080;
+}
+
+.navbar ul li a:hover {
+    background-color: #059669;
+    border-color: #047857;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar ul li a:active {
+    transform: translateY(0);
+}
+
+/* ----- BUTTONS ----- */
+.btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 42px;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+    background: #059669;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #047857;
+}
+
+.btn-disabled {
+    background-color: #cbd5e1 !important;
+    color: #64748b !important;
+    cursor: not-allowed !important;
+    border: 1px solid #94a3b8 !important;
+    opacity: 0.8;
+}
+
+.btn-reserved {
+    background-color: #f59e0b !important;
+    color: #ffffff !important;
+    cursor: not-allowed !important;
+    border: 1px solid #d97706 !important;
+    opacity: 0.85;
+}
+
+/* ----- PROPERTY HEADER & CURRENCY ----- */
+.property-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    background: #ffffff;
+    padding: 18px 24px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.property-header h2 {
+    color: #1a1a2e;
+    font-size: 22px;
+    margin: 0;
+}
+
+.currency-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: #334155;
+}
+
+.currency-dropdown {
+    padding: 8px 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    background: #f8fafc;
+}
+
+/* ----- PROPERTY CARD GRID ----- */
+.unit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.property-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background: #1a1a2e;
+    color: #ffffff;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.unit-tag {
+    background: #2d3e5f;
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #475569;
+}
+
+.main-price {
+    background: #f1f5f9;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border-left: 4px solid #059669;
+}
+
+.price-val.highlight {
+    color: #059669;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #64748b;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 10px;
+}
+
+/* ----- STATUS BADGES ----- */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.status-available {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-reserved, .status-hold {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-sold {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.card-footer {
+    padding: 15px 20px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.card-footer .btn {
+    width: 100%;
+}
+
+.empty {
+    text-align: center;
+    color: #64748b;
+    padding: 40px 20px;
+    font-size: 15px;
+}
+ 
+/* Responsive and accessible additions; retain the original palette and cards. */
+[hidden] { display: none !important; }
+button:disabled { cursor: not-allowed; opacity: .65; transform: none; }
+.notice { padding: 12px 16px; background: #eef6ff; border: 1px solid #bfdbfe; border-radius: 8px; margin: 12px 0; font-size: 14px; }
+.error-message { color: #b91c1c; padding: 10px 0; white-space: pre-wrap; }
+.success-message { color: #047857; padding: 10px 0; }
+.main.container { padding: 30px 20px; }
+.modal-overlay { padding: 16px; overflow-y: auto; }
+.modal-content { max-height: 90vh; overflow-y: auto; }
+.price-row, .info-row, .booking-header, .card-header { gap: 12px; overflow-wrap: anywhere; }
+.info-row > :last-child { text-align: right; }
+.particulars-box, .detail-view-row { overflow-wrap: anywhere; white-space: pre-wrap; }
+.header { background: #1a1a2e; padding: 18px 0; }
+.logo, .nav a { color: white; text-decoration: none; }
+.nav { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; }
+.about-card { background: white; padding: 24px; margin: 20px 0; border-radius: 12px; border: 1px solid #e2e8f0; }
+.about-card ul { margin-left: 24px; }
+.skip-link { position: absolute; left: -9999px; }
+.skip-link:focus { position: static; }
+:focus-visible { outline: 3px solid #0284c7; outline-offset: 3px; }
+@media (max-width: 760px) {
+  .navbar, .property-header, .page-header { flex-direction: column; align-items: stretch; gap: 16px; }
+  .navbar ul { flex-wrap: wrap; }
+  .navbar ul li a { padding: 8px 10px; }
+  .property-header > div { flex-wrap: wrap; }
+  .currency-bar { flex-wrap: wrap; }
+  .currency-dropdown { max-width: 100%; }
+  .unit-grid, .bookings-grid, .features-grid, .stats-container { grid-template-columns: minmax(0, 1fr); }
+  .hero-title { font-size: 28px !important; }
+  .hero-section { padding: 50px 16px !important; }
+  .booking-header, .card-header { flex-wrap: wrap; }
+  .modal-actions { flex-wrap: wrap; }
+  .container { padding-left: 16px; padding-right: 16px; }
+}

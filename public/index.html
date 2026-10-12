@@ -1,1 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Housing Sales Management System</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* 主页 Hero 区块样式 */
+    .hero-section {
+      position: relative;
+      background: linear-gradient(135deg, rgba(26, 26, 46, 0.85), rgba(15, 23, 42, 0.9)), 
+                  url('background.jpg') center/cover no-repeat;
+      color: #ffffff;
+      padding: 90px 20px;
+      text-align: center;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      margin-bottom: 40px;
+    }
 
+    .hero-content {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: #cbd5e1;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background-color: #059669;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.4);
+    }
+
+    .hero-btn:hover {
+      background-color: #047857;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(5, 150, 105, 0.6);
+    }
+
+    /* 数据统计栏 */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 45px;
+    }
+
+    .stat-card {
+      background: #ffffff;
+      padding: 22px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: 800;
+      color: #059669;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    /* 核心功能特色区 */
+    .features-section {
+      margin-bottom: 40px;
+    }
+
+    .section-heading {
+      text-align: center;
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 30px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* 页脚 */
+    .footer {
+      text-align: center;
+      padding: 25px 0;
+      color: #64748b;
+      font-size: 14px;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 50px;
+    }
+  </style>
+  <script src="client.js" defer></script>
+</head>
+<body>
+  <!-- 统一导航栏 -->
+  <nav class="navbar">
+    <h2>Housing Sales Management</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="units.html">Properties</a></li>
+      <li><a href="buyers.html">My Bookings</a></li>
+      <li><a href="login.html">Login / Register</a></li>
+    </ul>
+  </nav>
+
+  <div class="container main">
+    <!-- Hero 区块 -->
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to Housing Sales Management System</h1>
+        <p class="hero-subtitle">Browse premium property portfolios, view indicative multi-currency prices, and manage your reservations online.</p>
+        <a href="units.html" class="hero-btn">🏢 VIEW AVAILABLE PROPERTIES</a>
+      </div>
+    </div>
+
+    <!-- 数据统计栏 -->
+    <div class="stats-container">
+      <div class="stat-card">
+        <div class="stat-number" id="available-count">—</div>
+        <div class="stat-label">Currently Available Units</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4 Currencies</div>
+        <div class="stat-label">MYR, USD, SGD, CNY</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">Account Access</div>
+        <div class="stat-label">Sign in to manage your own bookings</div>
+      </div>
+    </div>
+
+    <!-- 系统核心特色区 -->
+    <div class="features-section">
+      <h2 class="section-heading">Key Platform Features</h2>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💱</div>
+          <div class="feature-title">Indicative Multi-Currency Pricing</div>
+          <div class="feature-desc">View approximate MYR conversions to USD, SGD, or CNY. Indicative rates are not live quotes or payment offers.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-title">Reservation Management</div>
+          <div class="feature-desc">Reserve an available unit, review its expiry, and manage pending bookings from your account.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <div class="feature-title">GPS Location Auto-Detect</div>
+          <div class="feature-desc">Administrators may request device location when adding properties. Location permission is optional.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>© 2026 Housing Sales Management System. All rights reserved.</p>
+    </div>
+  </div>
+<script src="home.js" defer></script>
+</body>
+</html>

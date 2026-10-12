@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Register - Housing Sales Management</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="client.js" defer></script>
+</head>
+<body>
+  <nav class="navbar">
+    <h2>Housing Sales Management</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="units.html">Properties</a></li>
+      <li><a href="buyers.html">My Bookings</a></li>
+      <li><a href="login.html">Login / Register</a></li>
+    </ul>
+  </nav>
+
+  <div class="container" style="max-width: 400px; margin-top: 50px;">
+    <h2>User Login</h2>
+    <form id="login-form">
+      <div style="margin-bottom: 15px;">
+        <label>Email Address:</label>
+        <input type="email" id="email" autocomplete="email" required style="width: 100%; padding: 8px;">
+      </div>
+      <div style="margin-bottom: 15px;">
+        <label>Password:</label>
+        <input type="password" id="password" autocomplete="current-password" required style="width: 100%; padding: 8px;">
+      </div>
+      
+      <!-- Primary Action Button -->
+      <p id="auth-message" role="alert"></p><button type="submit" style="width: 100%; padding: 10px;" class="btn btn-primary">Login</button>
+    </form>
+    
+    <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
+      <p style="margin: 0;">Don't have an account? <a href="signup.html">Register here</a></p>
+      <a href="reset-password.html" style="color: #007bff; text-decoration: none;">Forgot Password?</a>
+    </div>
+  </div>
+
+  
+<script src="auth-pages.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Housing Sales Management</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="client.js" defer></script>
+</head>
+<body>
+  <nav class="navbar">
+    <h2>Housing Sales Management</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="units.html">Properties</a></li>
+      <li><a href="buyers.html">My Bookings</a></li>
+      <li><a href="login.html">Login / Register</a></li>
+    </ul>
+  </nav>
+
+  <div class="container" style="max-width: 400px; margin-top: 50px;">
+    <h2>Create an Account</h2>
+    <form id="signup-form">
+      <div style="margin-bottom: 15px;">
+        <label>Full Name:</label>
+        <input type="text" id="name" required style="width: 100%; padding: 8px;">
+      </div>
+      <div style="margin-bottom: 15px;">
+        <label>Email Address:</label>
+        <input type="email" id="email" autocomplete="email" required style="width: 100%; padding: 8px;">
+      </div>
+      <div style="margin-bottom: 15px;">
+        <label>Password:</label>
+        <input type="password" id="password" autocomplete="new-password" required style="width: 100%; padding: 8px;">
+      </div>
+      <p id="auth-message" role="alert"></p><div style="margin-bottom:15px;"><label for="phone">Phone (optional):</label><input type="tel" id="phone" autocomplete="tel" style="width:100%;padding:8px;"></div><p class="notice">Password must contain at least 8 characters and at most 72 UTF-8 bytes.</p><button type="submit" style="width: 100%; padding: 10px;" class="btn btn-primary">Register</button>
+    </form>
+    <p style="margin-top: 15px;">Already have an account? <a href="login.html">Login here</a></p>
+  </div>
+
+  
+<script src="auth-pages.js" defer></script>
+</body>
+</html>

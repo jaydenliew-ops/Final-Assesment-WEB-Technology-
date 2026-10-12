@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property List & Online Booking</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .project-section-title {
+      font-size: 20px; font-weight: bold; color: #1a1a2e;
+      margin: 25px 0 15px 0; padding-bottom: 8px;
+      border-bottom: 2px solid #059669; display: flex; align-items: center; gap: 10px; width: 100%;
+    }
+    .modal-overlay {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6); z-index: 9999; justify-content: center; align-items: center;
+    }
+    .modal-content {
+      background: #ffffff; padding: 28px; border-radius: 12px; width: 90%; max-width: 460px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+    }
+    .modal-content h3 { margin-top: 0; margin-bottom: 18px; color: #1a1a2e; font-size: 18px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #334155; }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; box-sizing: border-box;
+    }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 22px; }
+    .btn-location {
+      background-color: #0284c7; color: #ffffff; border: none; padding: 4px 10px; border-radius: 4px; font-size: 12px; cursor: pointer;
+    }
+  </style>
+  <script src="client.js" defer></script>
+</head>
+<body>
+  <nav class="navbar">
+    <h2>Housing Sales Management</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="units.html">Properties</a></li>
+      <li><a href="buyers.html">My Bookings</a></li>
+      <li><a href="login.html">Login / Register</a></li>
+    </ul>
+  </nav>
+
+  <div class="container main">
+    <div class="property-header">
+      <h2>🏢 Available Properties & Units</h2>
+      <div style="display: flex; gap: 15px; align-items: center;">
+        <div class="currency-bar">
+          <label for="currency-select">💱 Currency: </label>
+          <select id="currency-select" class="currency-dropdown" onchange="loadAllUnits()">
+            <option value="MYR">MYR (Malaysian Ringgit)</option>
+            <option value="USD">USD (US Dollar)</option>
+            <option value="SGD">SGD (Singapore Dollar)</option>
+            <option value="CNY">CNY (Chinese Yuan)</option>
+          </select>
+        </div>
+        <!-- 修改处 1：去掉了 / Company 字眼 -->
+        <button id="add-property-button" class="btn btn-primary" onclick="openAddModal()">➕ Add Property</button>
+      </div>
+    </div>
+    <p class="notice">Currency conversions use approximate indicative rates, not live exchange rates. Reservations do not transfer money.</p><p id="page-message" role="status"></p><div id="units-container"></div>
+  </div>
+
+  <!-- Add Property Modal -->
+  <div id="addModal" class="modal-overlay">
+    <div class="modal-content">
+      <!-- 修改处 2：去掉了弹窗标题的 / Company -->
+      <h3>➕ Add New Property</h3>
+      <form id="addPropertyForm">
+        <div class="form-group">
+          <!-- 修改处 3：将表单标签改为 Project Name -->
+          <label>Project Name:</label>
+          <input type="text" id="projectName" placeholder="e.g. Greenfield Heights" required>
+        </div>
+        <div class="form-group">
+          <label>Unit Number:</label>
+          <!-- 修改处 4：为 Unit Number 增加了 list 属性及 datalist 候选项供自动选择 -->
+          <input type="text" id="unitNumber" list="unit-options" placeholder="e.g. A-10-04" required>
+          <datalist id="unit-options">
+            <option value="A-01-01">
+            <option value="A-01-02">
+            <option value="A-02-01">
+            <option value="B-05-03">
+            <option value="B-10-04">
+            <option value="C-12-01">
+          </datalist>
+        </div>
+        <div class="form-group">
+          <label>Price (MYR):</label>
+          <input type="number" id="priceMyr" min="0.01" step="0.01" placeholder="e.g. 480000" required>
+        </div>
+        <div class="form-group">
+          <label>
+            Latitude:
+            <button type="button" class="btn-location" onclick="autoGetLocation()">📍 Auto Detect</button>
+          </label>
+          <input type="text" id="latitude" inputmode="decimal">
+        </div>
+        <div class="form-group">
+          <label>Longitude:</label>
+          <input type="text" id="longitude" inputmode="decimal">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-disabled" onclick="closeAddModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Property</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Customer Particulars Modal -->
+  <div id="bookModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3>📝 Enter Customer Particulars</h3>
+      <form id="bookDetailsForm">
+        <div class="form-group">
+          <label>Full Name (as per IC / Passport):</label>
+          <input type="text" id="bookFullName" placeholder="e.g. Alex Wong" required>
+        </div>
+        <div class="form-group">
+          <label>IC / Passport Number:</label>
+          <input type="text" id="bookIcNumber" placeholder="e.g. 901201-14-5522" required>
+        </div>
+        <div class="form-group">
+          <label>Contact Phone Number:</label>
+          <input type="text" id="bookPhone" placeholder="e.g. 012-3456789" required>
+        </div>
+        <div class="form-group">
+          <label>Remarks / Loan Info (Optional):</label>
+          <textarea id="bookRemarks" rows="2" placeholder="e.g. Maybank Loan Pre-approved"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-disabled" onclick="closeBookModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<script src="units.js" defer></script>
+</body>
+</html>
